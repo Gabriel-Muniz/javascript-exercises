@@ -7,19 +7,11 @@ const subtract = function (n1, n2) {
 };
 
 const sum = function ([...numeros]) {
-  let resultado = 0;
-
-  numeros.forEach((numero) => {
-    resultado += +numero;
-  });
-
-  return resultado;
+  return numeros.reduce((total, currentValue) => total + currentValue, 0);
 };
 
 const multiply = function ([...numeros]) {
-  let auxiliarMult = 1;
-  numeros.forEach((numero) => (auxiliarMult *= numero));
-  return auxiliarMult;
+  return numeros.reduce((total, currentValue) => (total *= currentValue), 1);
 };
 
 const power = function (n1, n2) {
@@ -32,7 +24,7 @@ const factorial = function (n) {
   for (let i = n; i > 0; i--) {
     auxiliarFactorial *= i;
   }
-  return auxiliarFactorial; 
+  return auxiliarFactorial;
 };
 
 // Do not edit below this line
