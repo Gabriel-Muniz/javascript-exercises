@@ -1,6 +1,7 @@
 const findTheOldest = function (peopleArray) {
     const oldestPerson = peopleArray.reduce((oldest, currentPerson) => {
-        let auxOldestAge = ((oldest.yearOfDeath) ? oldest.yearOfDeath : new Date().getFullYear()) - oldest.yearOfBirth;
+        oldest.yearOfDeath ??= new Date().getFullYear();
+        let auxOldestAge = oldest.yearOfDeath - oldest.yearOfBirth;
         let auxCurrentAge = currentPerson.yearOfDeath - currentPerson.yearOfBirth;
 
         return (auxOldestAge > auxCurrentAge) ? oldest : currentPerson;
